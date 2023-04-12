@@ -1,6 +1,6 @@
 <?php
 require 'database.php';
-$sql = "SELECT * FROM `tools`;";
+$sql = "SELECT * FROM `tools` where id =?;";
 $tools = mysqli_query($conn, $sql);
 if (mysqli_connect_error()) {
     echo "orh no";
@@ -34,7 +34,7 @@ if (mysqli_connect_error()) {
             <?php foreach ($tools as $tool) { ?>
                 <tr>
                     <td><?php echo $tool['tool_id'] ?></td>
-                    <td><a href="tools-detail.php?id=<?php echo $tool['tool_id'] ?>"><?php echo $tool['tool_name'] ?></a></td>
+                    <td><?php echo $tool['tool_name'] ?></a></td>
                     <td><?php echo $tool['tool_category'] ?></td>
                     <td><?php echo $tool['tool_price'] ?></td>
                     <td><?php echo $tool['tool_brand'] ?></td>
