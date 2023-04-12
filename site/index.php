@@ -1,7 +1,7 @@
 <?php
 require 'database.php';
 $sql = "SELECT * FROM `tools`;";
-$result = mysqli_query($conn, $sql);
+$tools = mysqli_query($conn, $sql);
 if (mysqli_connect_error()) {
     echo "orh no";
 } else {
@@ -19,10 +19,32 @@ if (mysqli_connect_error()) {
 </head>
 
 <body>
+    <table>
+        <thead>
+            <tr>
+                <th>tool_id</th>
+                <th>tool_name</th>
+                <th>tool_category</th>
+                <th>tool_price</th>
+                <th>tool_brand</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($tools as $tool) { ?>
+                <tr>
+                    <td><?php echo $tool['tool_id'] ?></td>
+                    <td><?php echo $tool['tool_name'] ?></td>
+                    <td><?php echo $tool['tool_category'] ?></td>
+                    <td><?php echo $tool['tool_price'] ?></td>
+                    <td><?php echo $tool['tool_brand'] ?></td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
     <div>
         <?php foreach ($tools as $tool) { ?>
             <div>
-                <p><?php echo $tool['name'] ?></p>
+                <p><?php echo $tool['tool_name'] ?></p>
             </div>
         <?php } ?>
     </div>
