@@ -20,11 +20,11 @@ if (mysqli_connect_error()) {
 
 <body>
     <div>
-        <?php foreach ($tools as $tool) : ?>
+        <?php foreach ($tools as $tool) { ?>
             <div>
-                <p><?php echo $result['name'] ?></p>
+                <p><?php echo $tool['name'] ?></p>
             </div>
-        <?php endforeach; ?>
+        <?php } ?>
     </div>
 </body>
 
