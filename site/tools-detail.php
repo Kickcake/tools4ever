@@ -1,6 +1,8 @@
 <?php
 require 'database.php';
-$sql = "SELECT * FROM `tools` where id =?;";
+$id = $_GET['id'];
+
+$sql = "SELECT * FROM `tools` WHERE tool_id = '$id';";
 $tools = mysqli_query($conn, $sql);
 if (mysqli_connect_error()) {
     echo "orh no";
